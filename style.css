@@ -21,6 +21,10 @@ body {
     padding-top: 100px;
 }
 
+body .meal-wrapper {
+    background: url(assets/images/faq-bg.png);
+}
+
 .body-fixed {
     position: fixed;
     width: 100%;
