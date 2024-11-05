@@ -16,6 +16,235 @@ body {
     font-size: 1.05rem;
     line-height: 1.6;
     font-family: sans-serif;
+    text-rendering: optimizeLegibility;
+    background: #f3f3f5;
+    padding-top: 100px;
+}
+
+.body-fixed {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: auto;
+    left: auto;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+.container {
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between; /* Add this */
+
+}
+.site-header {
+    position: fixed;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.5s;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+}
+
+.site-header.sticky_head {
+    background: rgb(255 255 255 / 80%);
+    padding: 20px 0;
+    border-color: #f2f2f2;
+    backdrop-filter: blur(20px);
+}
+
+.site-header.sticky_head .container {
+    padding: 15px 30px;
+}
+
+/* Add this new style for the container when header is sticky */
+.site-header.sticky_head{
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 10px 10px; /* Optional: adds rounded corners to bottom */
+    padding: 15px 30px; /* Add some padding */
+}
+
+.main-navigation {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-navigation .menu li {
+    display: inline-block;
+    position: relative;
+    margin: 0 6px;
+}
+
+.main-navigation .menu li:first-child {
+    margin-left: 0;
+}
+
+.main-navigation .menu li:last-child {
+    margin-right: 0;
+}
+
+.main-navigation .menu li:hover>ul, 
+.main-navigation .menu li.focus>ul {
+    opacity: 1;
+    margin-top: 6px;
+    visibility: visible;
+    left: auto;
+}
+
+.main-navigation .menu ul a {
+    width: 200px;
+}
+
+.main-navigation .menu li a {
+    display: flex;
+    transition: 0.3s;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #0d0d25;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 5px 18px;
+    border-radius: 30px;
+}
+
+.main-navigation .menu li a:hover, 
+.main-navigation .menu li .active-menu, 
+.main-navigation .menu .sub-menu li .active-sub-menu {
+    color: #ff8243;
+    background: #f3f3f5;
+    box-shadow: inset 8px 8px 12px #e2e2e2, inset -8px -8px 12px #ffffff;
+}
+
+/* Global Styles */
+a {
+    background-color: transparent;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Right Section */
+.header-right {
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.header-btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    margin-left: 20px;
+    transition: 0.3s;
+    box-shadow: inset 6px 6px 7px #dadada, inset -6px -6px 7px #ffffff;
+    align-items: center;
+}
+
+.header-cart,
+.header-btn:last-child {
+    margin-left: 25px;
+}
+
+.cart-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #ffffff;
+    font-size: 12px;
+    border: 1px solid #bfbfbf;
+    color: #ff8243;
+}
+
+/* Search Form Styles */
+.header.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+}
+
+.header.search-form .form-input {
+    width: 100%;
+    height: 40px;
+    padding: 10px 35px 10px 15px;
+    border-radius: 10px;
+    background: #f8f8f8;
+    box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.header.search-form button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header.search-form button .uil-search {
+    font-size: 16px;
+    color: #ff8243;
+}
+
+.form-input::placeholder {
+    color: rgba(70, 69, 71, 0.7);
+    font-size: 14px;
+}
+
+/* Utility Classes */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.uil {
+    color: #ff8243;
 }
 
 /* */
@@ -46,7 +275,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
-    background: #fff;
+    background: #f3f3f5;
     text-align: center;
 }
 .meal-search {
@@ -282,4 +511,68 @@ body {
     #meal {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+.food-nav-menu,
+.main-navigation .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.food-nav-menu li,
+.main-navigation .menu li {
+    list-style-type: none;
+    margin: 0 6px;
+}
+
+/* If you still see the dot, add this stronger reset */
+.main-navigation .menu li::before,
+.main-navigation .menu li::after {
+    display: none;
+    content: none;
+}
+
+.header-menu {
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu .menu,
+.header-menu .food-nav-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-menu .menu li,
+.header-menu .food-nav-menu li {
+    margin: 0 6px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-menu .menu li a,
+.header-menu .food-nav-menu li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 18px;
+}
+
+/* Extra strong reset */
+.header-menu *,
+.header-menu *::before,
+.header-menu *::after {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+/* Add this new style for the navigation when header is sticky */
+.site-header.sticky_head .main-navigation .menu li a {
+    color: #0d0d25;
 }

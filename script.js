@@ -1,3 +1,28 @@
+//header starts
+$(document).ready(function ($){
+    "use strict";
+    WebGLSampler.registerPlugin(ScrollTrigger);
+
+    var elementFrist = document.querySelector('.site-header');
+    ScrollTrigger.create({
+        trigger : "body",
+        start : "30px",
+        end : "bottom bottom", 
+
+        onEnter : () => myFunction(),
+        onLeaveBack : () => myFunction(),
+    });
+
+    function myFunction(){
+        elementFrist.classList.toggle('sticky_head');
+    }
+})
+//header ends
+
+
+
+
+//meal search function
 const searchBtn = document.getElementById('food-search-btn');
 const mealList = document.getElementById('meal');
 const mealDetailsContent = document.querySelector('.meal-details-content');
